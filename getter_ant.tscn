@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://x8y15macoo6j"]
+
+[ext_resource type="Script" uid="uid://bqxckmwg1hvi0" path="res://getter_ant.gd" id="1_whyx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ah85h"]
+radius = 29.0689
+
+[node name="Getter_Ant" type="StaticBody2D"]
+script = ExtResource("1_whyx7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ah85h")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpl7qt80w4t1p"]
+
+[ext_resource type="FontFile" uid="uid://drynl4cy0ce0u" path="res://Assets/Peaberry-Bold.ttf" id="1_28flt"]
+[ext_resource type="Script" uid="uid://bn0gongh3f326" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://bl25y251xiw4x" path="res://splash.png" id="2_1ehe0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ce3w2"]
+texture = ExtResource("2_1ehe0")
+
+[sub_resource type="Gradient" id="Gradient_n45e2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.054902, 0.054902, 0.054902, 0.388235)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_opfnp"]
+gradient = SubResource("Gradient_n45e2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
+bg_color = Color(0.851769, 0.851769, 0.851769, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48xlc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ce3w2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_opfnp")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = -44.5
+offset_right = 203.5
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
+text = "Start Game Session"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = 61.5
+offset_right = 203.5
+offset_bottom = 150.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
+text = "Help!"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = 170.5
+offset_right = 203.5
+offset_bottom = 259.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_helped_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_exit_pressed"]
