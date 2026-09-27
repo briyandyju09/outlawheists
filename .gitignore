@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot-specific export presets with secrets
+export_credentials.cfg
+
+# Mono/C# (not used here, kept for safety)
+.mono/
+data_*/
